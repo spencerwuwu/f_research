@@ -1,5 +1,6 @@
-from bs4 import BeautifulSoup
 from utils import *
+
+from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
@@ -11,7 +12,7 @@ def parse_review(soup):
         date = div.find(attrs={"data-hook": "review-date"}).string
         rate = div.find(attrs={"data-hook": "review-star-rating"}).string
         if date != None and rate != None:
-            cmd = "echo " + parse_date(date) + " " + parse_rate(rate)+ " >> amazon_result.txt"
+            cmd = "echo " + parse_date(date) + " " + parse_rate(rate)+ " >> result_amazon.txt"
             os.system(cmd)
 
 def has_next(html):
